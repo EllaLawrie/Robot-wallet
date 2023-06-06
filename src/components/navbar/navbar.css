@@ -1,9 +1,10 @@
 .navbar {
-  width: 100%;
+  width: 425px;
   height: 65px;
   background-color: var(--dark-2);
   position: fixed;
   left: 0;
+  right: 0;
   bottom: 0;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
@@ -11,4 +12,5 @@
   justify-content: space-evenly;
   align-items: center;
   z-index: 100;
+  margin: auto;
 }

@@ -73,9 +73,6 @@ export default function Home() {
           <Pricebox />
           <Pricebox />
           <Pricebox />
-          <Pricebox />
-          <Pricebox />
-          <Pricebox />
         </div>
       </section>
 
