@@ -1,4 +1,5 @@
 import './faqpage.css'
+import BackButton from '../../components/backButton/BackButton'
 
 import News from '../../components/news/News'
 
@@ -8,7 +9,7 @@ import clockIcon from '../../assets/icons/clock.svg'
 import displayImage from '../../assets/images/faq-display.png'
 import newsImage2 from '../../assets/images/news-image2.png'
 import newsImage3 from '../../assets/images/news-image3.png'
-import BackButton from '../../components/backButton/BackButton'
+import { Link } from 'react-router-dom'
 
 export default function FaqPage() {
   return (
@@ -42,16 +43,20 @@ export default function FaqPage() {
 
       <div className='all-news-section'>
         <div className='all-news-wrapper'>
-          <News
-            image={newsImage2}
-            altText='News image'
-            text='Bitcoin Surpasses $40k With On-Chain Indicators Turning Bullish'
-          />
-          <News
-            image={newsImage3}
-            altText='News image'
-            text='CoinMarketCap APAC Influencer(KOL) Content Policy'
-          />
+          <Link to='/faq-details/1'>
+            <News
+              image={newsImage2}
+              altText='News image'
+              text='Bitcoin Surpasses $40k With On-Chain Indicators Turning Bullish'
+            />
+          </Link>
+          <Link to='/faq-details/2'>
+            <News
+              image={newsImage3}
+              altText='News image'
+              text='CoinMarketCap APAC Influencer(KOL) Content Policy'
+            />
+          </Link>
         </div>
       </div>
     </section>

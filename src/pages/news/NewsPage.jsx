@@ -1,4 +1,5 @@
 import './newspage.css'
+import BackButton from '../../components/backButton/BackButton'
 
 import News from '../../components/news/News'
 import achainIcon from '../../assets/icons/achain.svg'
@@ -9,7 +10,6 @@ import displayImage from '../../assets/images/news-display.png'
 import newsImage1 from '../../assets/images/news-image1.png'
 import newsImage2 from '../../assets/images/news-image2.png'
 import { Link } from 'react-router-dom'
-import BackButton from '../../components/backButton/BackButton'
 
 export default function NewsPage() {
   return (
