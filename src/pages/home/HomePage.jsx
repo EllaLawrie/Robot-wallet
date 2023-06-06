@@ -2,7 +2,7 @@
 import Pricebox from '../../components/pricebox/Pricebox'
 import Action from '../../components/actions/Action'
 import News from '../../components/news/News'
-import Faq from '../../components/faq/FAQ'
+import Faq from '../../components/faq/Faq'
 
 // SVGs
 import playStoreIcon from '../../assets/icons/googleplaystore.svg'
