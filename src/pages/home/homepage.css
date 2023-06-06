@@ -1,0 +1,301 @@
+.container {
+  width: 375px;
+  margin: auto;
+  margin-bottom: 30px;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.first-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.box {
+  background-color: #9395a4;
+  color: #282c4a;
+  border-radius: var(--br-40);
+  font-size: var(--font-14);
+  padding: 10px 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.second-box {
+  background-color: var(--purple);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 12px 48px 20px 13px;
+  border-radius: var(--br-25);
+  margin-top: 22px;
+}
+
+.bitscard-text {
+  color: var(--orange-1);
+}
+
+.btns-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.btn {
+  background-color: var(--bg-dark);
+  color: #ffffff;
+  padding: 7px 23px;
+  border-radius: var(--br-40);
+  font-size: var(--font-14);
+}
+
+.second-box .robot-one {
+  position: absolute;
+  top: -50px;
+  right: -65px;
+}
+
+.section {
+  margin-top: 20px;
+  color: #fff;
+}
+
+.section-title {
+  font-size: var(--font-20);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.price-box-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin-top: 12px;
+}
+
+.price-box-wrapper::-webkit-scrollbar,
+.giftcards-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.crypto-rates-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.crypto-rates {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-2);
+  border-radius: var(--br-25);
+  padding: 17px 7px 11px;
+}
+
+.usdt-logo-wrapper {
+  width: 50px;
+  height: 50px;
+  background: rgba(80, 175, 149, 0.31);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.crypto-rate {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.crypto-rate div {
+  display: flex;
+  align-items: center;
+}
+
+.crypto-rate div span {
+  display: flex;
+  align-items: center;
+}
+
+.actions-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 12px;
+}
+
+.giftcards-wrapper {
+  margin-top: 15px;
+  display: flex;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  gap: 15px;
+}
+
+.giftcards-wrapper img {
+  width: 138px;
+  height: auto;
+}
+
+.title-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.see-all-text {
+  color: var(--orange-2);
+}
+
+.exchange-rate-wrapper {
+  background-color: var(--dark-2);
+  color: #fff;
+  border-radius: var(--br-25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.usd-content {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.exchange-prices {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.exchange-price {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.eighth-box {
+  background-color: var(--pink);
+  border-radius: var(--br-25);
+  padding: 7px;
+  position: relative;
+}
+
+.eighth-box h3 {
+  margin-left: 8px;
+}
+
+.eighth-box .inner-box {
+  margin-top: 5px;
+  background-color: var(--dark-2);
+  color: #fff;
+  font-size: 0.813rem;
+  padding: 8px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 155px;
+  max-width: 100%;
+}
+
+.eighth-box .robot-two {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.news-wrapper,
+.faqs-wrapper {
+  margin-top: 12px;
+  background-color: var(--dark-2);
+  border-radius: var(--br-25);
+  padding: 8px;
+  color: #fff;
+}
+
+.eleventh-box {
+  background-color: var(--purple);
+  border-radius: var(--br-25);
+  padding: 15px;
+  position: relative;
+}
+
+.eleventh-box .section-title {
+  font-weight: 600;
+}
+
+.socials-wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socials p {
+  font-weight: 600;
+  font-size: 0.625rem;
+}
+
+.eleventh-box .robot-three {
+  position: absolute;
+  top: -20%;
+  right: 15%;
+}
+
+@media screen and (max-width: 370px) {
+  .crypto-rates-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .crypto-rates {
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    padding: 20px 8px;
+  }
+
+  .crypto-rate {
+    gap: 20px;
+  }
+
+  .crypto-rate div {
+    gap: 8px;
+  }
+
+  .crypto-rate div span {
+    gap: 3px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .actions-wrapper {
+    grid-template-columns: 1fr;
+    max-width: 200px;
+    margin: auto;
+    gap: 15px;
+  }
+}
+
+.news-wrapper,
+.faqs-wrapper {
+  padding: 6px 2px;
+}

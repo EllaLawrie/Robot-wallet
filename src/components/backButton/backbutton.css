@@ -1,0 +1,9 @@
+.back-btn {
+  width: 48px;
+  height: 48px;
+  background-color: var(--dark-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}

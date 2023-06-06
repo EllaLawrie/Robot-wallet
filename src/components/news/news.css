@@ -1,0 +1,15 @@
+.news-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.time-box {
+  color: var(--light-grey);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

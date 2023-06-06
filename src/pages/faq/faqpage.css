@@ -1,0 +1,54 @@
+.faq.display-news-section {
+  position: relative;
+}
+
+.coin-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-14);
+  background-color: rgba(37, 39, 57, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 8px;
+  width: 128px;
+  font-weight: 600;
+  border-radius: var(--br-25);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.faq-types {
+  background-color: var(--dark-4);
+  border-radius: var(--br-30);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 16px 4px 4px;
+  margin-top: 50px;
+}
+
+.faq-type {
+  font-size: var(--font-14);
+  font-weight: 600;
+}
+
+.faq-type:nth-child(1) {
+  padding: 13px 27px;
+  border-radius: var(--br-25);
+  background-color: var(--dark-2);
+}
+
+.faq-type.type-two,
+.faq-type.type-three {
+  color: var(--light-grey-2);
+}
+
+@media screen and (max-width: 300px) {
+  .coin-title {
+    font-size: var(--font-13);
+    padding: 5px;
+    width: 120px;
+    backdrop-filter: blur(5px);
+  }
+}

@@ -1,0 +1,56 @@
+.signup-number-container {
+  width: 375px;
+  margin: auto;
+  /* margin-bottom: 70px; */
+  height: 100%;
+  /* background-image: url(../../assets/images/robot5.png); */
+  /* background-repeat: no-repeat; */
+  /* background-size: contain; */
+  /* background-color: var(--orange-3); */
+  padding-top: 32px;
+}
+
+.back-btn-box {
+  display: flex;
+  padding-inline: 25px;
+}
+
+.signup-number-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 48px;
+  margin-top: 60px;
+  margin-inline: auto;
+  max-width: 325px;
+}
+
+.input-number-box {
+  margin-top: 40px;
+  max-width: 325px;
+  margin-inline: auto;
+  background-color: var(--dark-4);
+  border-radius: var(--br-30);
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 21px;
+}
+
+.phone-select-box {
+  /* justify-self: flex-end; */
+  /* margin-left: auto; */
+  font-size: var(--font-18);
+  width: 30%;
+}
+
+.sinput {
+  background-color: var(--dark-2);
+  border-radius: var(--br-25);
+  outline: none;
+  border: 0;
+  color: #fff;
+  padding: 12px;
+  text-indent: 8px;
+  font-weight: 600;
+}

@@ -1,0 +1,33 @@
+.price-box {
+  background-color: var(--dark-2);
+  color: #fff;
+  border-radius: var(--br-25);
+  gap: 10px;
+  padding: 20px;
+}
+
+.inner-price-box {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.section-title p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--font-14);
+}
+
+.inner-price-box h3 {
+  font-size: var(--font-20);
+}
