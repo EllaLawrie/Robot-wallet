@@ -28,6 +28,7 @@
   font-size: var(--font-14);
 }
 
-.inner-price-box h3 {
+.inner-price-box h2 {
   font-size: var(--font-20);
+  font-weight: 500;
 }
