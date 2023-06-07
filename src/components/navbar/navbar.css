@@ -1,5 +1,5 @@
 .navbar {
-  width: 425px;
+  max-width: 425px;
   height: 65px;
   background-color: var(--dark-2);
   position: fixed;

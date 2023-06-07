@@ -14,6 +14,7 @@ import compareIcon from '../../assets/icons/compare.svg'
 import priceAlertIcon from '../../assets/icons/price alert.svg'
 import binanceIcon from '../../assets/icons/bitcoinbinancesvg.svg'
 import greenUpArrow from '../../assets/icons/greenarrowup.svg'
+import redArrowDown from '../../assets/icons/redarrowdown.svg'
 import blueUpArrow from '../../assets/icons/bluearrowup.svg'
 import blueDownArrow from '../../assets/icons/bluearrowdown.svg'
 import usaIcon from '../../assets/icons/usa.svg'
@@ -70,9 +71,22 @@ export default function Home() {
       <section className='section third-box'>
         <h2 className='section-title'>Price Alerts</h2>
         <div className='price-box-wrapper'>
-          <Pricebox />
-          <Pricebox />
-          <Pricebox />
+          <Pricebox
+            icon={binanceIcon}
+            crypto='BTC'
+            rate={2.5}
+            price='$32,128.80'
+            altText='Bitcoin'
+            arrowIcon={greenUpArrow}
+          />
+          <Pricebox
+            icon={usdtLogo}
+            crypto='USDT'
+            rate={2.2}
+            price='$1.0998'
+            altText='USDT'
+            arrowIcon={redArrowDown}
+          />
         </div>
       </section>
 
