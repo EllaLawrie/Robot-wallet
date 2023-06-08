@@ -15,7 +15,7 @@
   --green: #85eab1;
 
   /* Fonts */
-  --poppins: 'Poppins', sans-serif;
+  --poppins: "Poppins", sans-serif;
 
   /* Font sizes */
   --font-10: 0.625rem;
@@ -91,6 +91,11 @@ h6 {
 
 html {
   scroll-behavior: smooth;
+}
+
+.all-content-wrapper {
+  width: 100%;
+  overflow: hidden;
 }
 
 .details-container {

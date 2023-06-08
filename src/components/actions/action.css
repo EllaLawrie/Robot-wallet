@@ -10,11 +10,11 @@
   font-weight: 500;
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 320px) {
   .actions {
-    justify-content: center;
+    /* justify-content: center;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 10px; */
     gap: 10px;
   }
 }
