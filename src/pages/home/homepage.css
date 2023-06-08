@@ -1,16 +1,18 @@
 .container {
-  width: 375px;
+  width: 100%;
   margin: auto;
   margin-bottom: 30px;
   min-height: 100vh;
   padding: 40px 16px;
+  box-sizing: border-box;
 }
 
 .first-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .box {
@@ -44,6 +46,8 @@
   align-items: center;
   gap: 10px;
   position: relative;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .btn {
@@ -88,24 +92,35 @@
 }
 
 .crypto-rates-wrapper {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 18px; */
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   margin-top: 12px;
+  row-gap: 10px;
 }
 
 .crypto-rates {
+  width: 152px;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: space-between;
   align-items: center;
   background-color: var(--dark-2);
   border-radius: var(--br-25);
-  padding: 17px 7px 11px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.crypto-rates > img {
+  width: 40px;
 }
 
 .usdt-logo-wrapper {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: rgba(80, 175, 149, 0.31);
   display: flex;
   justify-content: center;
@@ -116,7 +131,8 @@
 .crypto-rate {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  /* gap: 15px; */
+  font-size: 12px;
 }
 
 .crypto-rate div {
@@ -134,6 +150,18 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   margin-top: 12px;
+}
+
+@media screen and (max-width: 320px) {
+  .actions-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .crypto-rates {
+    width: 100%;
+    justify-content: start;
+    gap: 10px;
+  }
 }
 
 .giftcards-wrapper {
@@ -261,7 +289,7 @@
   right: 15%;
 }
 
-@media screen and (max-width: 370px) {
+/* @media screen and (max-width: 370px) {
   .crypto-rates-wrapper {
     grid-template-columns: 1fr;
   }
@@ -298,4 +326,4 @@
 .news-wrapper,
 .faqs-wrapper {
   padding: 6px 2px;
-}
+} */
