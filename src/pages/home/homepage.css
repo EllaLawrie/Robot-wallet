@@ -26,6 +26,7 @@
   align-items: center;
   gap: 10px;
   font-weight: 600;
+  flex-basis: 170px;
 }
 
 .second-box {
@@ -275,6 +276,13 @@
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
