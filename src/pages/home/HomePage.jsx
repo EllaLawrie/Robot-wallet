@@ -1,5 +1,4 @@
 // import React, { useState, useEffect } from 'react'
-
 // Components
 import Pricebox from '../../components/pricebox/Pricebox'
 import Action from '../../components/actions/Action'
@@ -45,9 +44,9 @@ import './homepage.css'
 import { Link } from 'react-router-dom'
 
 export default function Home() {
-  // const [isLoading, setIsLoading] = useState(false)
-  // const [error, setError] = useState(null)
-  // const [allNews, setAllNews] = useState([])
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [error, setError] = useState(null);
+  // const [allNews, setAllNews] = useState([]);
 
   // useEffect(() => {
   //   const fetchNews = async () => {
@@ -296,22 +295,30 @@ export default function Home() {
       <section className='section eleventh-box'>
         <h3 className='section-title'>Support</h3>
         <div className='socials-wrapper'>
-          <div className='socials'>
-            <img src={whatsappImage} alt='Whatsapp image' />
-            <p>whatsapp</p>
-          </div>
-          <div className='socials'>
-            <img src={callImage} alt='Call image' />
-            <p>Call</p>
-          </div>
-          <div className='socials'>
-            <img src={liveChatImage} alt='Live chat image' />
-            <p>Live chat</p>
-          </div>
-          <div className='socials'>
-            <img src={telegramImage} alt='Telegram image' />
-            <p>Telegram</p>
-          </div>
+          <a href='https://wa.link/gy2buh'>
+            <div className='socials'>
+              <img src={whatsappImage} alt='Whatsapp image' />
+              <p>whatsapp</p>
+            </div>
+          </a>
+          <a href='tel:012293581'>
+            <div className='socials'>
+              <img src={callImage} alt='Call image' />
+              <p>Call</p>
+            </div>
+          </a>
+          <a>
+            <div className='socials'>
+              <img src={liveChatImage} alt='Live chat image' />
+              <p>Live chat</p>
+            </div>
+          </a>
+          <a href='https://t.me/bitscardcomm'>
+            <div className='socials'>
+              <img src={telegramImage} alt='Telegram image' />
+              <p>Telegram</p>
+            </div>
+          </a>
         </div>
         <img className='robot-three' src={robotThree} alt='Robot three' />
       </section>

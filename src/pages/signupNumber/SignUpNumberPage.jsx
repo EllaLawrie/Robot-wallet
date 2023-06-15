@@ -1,5 +1,6 @@
 import './signuppagenumber.css'
 import { phoneCodes } from '../../data/phoneCodes.jsx'
+
 import BackButton from '../../components/backButton/BackButton'
 import Modal from '../../components/modal/Modal'
 import { useState } from 'react'
@@ -42,7 +43,9 @@ export default function SignUpNumberPage() {
           </select>
         </div>
         <input
-          type='number'
+          type='tel'
+          // pattern="[0-9]*"
+          enterKeyHint='enter'
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
           onKeyUp={handleSubmit}

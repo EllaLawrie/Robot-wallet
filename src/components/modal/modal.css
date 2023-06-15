@@ -67,10 +67,6 @@
   flex-wrap: wrap;
 }
 
-.box-wrapper .box {
-  flex-basis: auto;
-}
-
 .inner-container p {
   font-size: var(--font-18);
   width: 197px;
