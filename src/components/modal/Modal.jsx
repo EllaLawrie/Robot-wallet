@@ -1,9 +1,17 @@
+/* eslint-disable react/prop-types */
+
 import './modal.css'
 import robotFour from '../../assets/images/robot4.png'
 import playStoreIcon from '../../assets/icons/googleplaystore.svg'
 import appleStoreIcon from '../../assets/icons/applestoreIcon.svg'
+import { useNavigate } from 'react-router-dom'
 
-export default function Modal() {
+export default function Modal({ handleModal }) {
+  const navigate = useNavigate()
+  const handleClick = () => {
+    handleModal(false)
+    navigate('/')
+  }
   return (
     <div className='modal'>
       <div className='inner-container'>
@@ -21,7 +29,9 @@ export default function Modal() {
             App store
           </button>
         </section>
-        <button className='modal-btn'>Okay</button>
+        <button className='modal-btn' onClick={handleClick}>
+          Okay
+        </button>
       </div>
     </div>
   )

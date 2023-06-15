@@ -1,18 +1,17 @@
 .signup-number-container {
-  width: 375px;
+  width: 100%;
   margin: auto;
-  /* margin-bottom: 70px; */
   height: 100%;
   /* background-image: url(../../assets/images/robot5.png); */
   /* background-repeat: no-repeat; */
   /* background-size: contain; */
   /* background-color: var(--orange-3); */
   padding-top: 32px;
+  padding-inline: 25px;
 }
 
 .back-btn-box {
   display: flex;
-  padding-inline: 25px;
 }
 
 .signup-number-heading {
@@ -21,12 +20,10 @@
   line-height: 48px;
   margin-top: 60px;
   margin-inline: auto;
-  max-width: 325px;
 }
 
 .input-number-box {
   margin-top: 40px;
-  max-width: 325px;
   margin-inline: auto;
   background-color: var(--dark-4);
   border-radius: var(--br-30);
@@ -34,23 +31,45 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 21px;
+  gap: 20px;
 }
 
-.phone-select-box {
-  /* justify-self: flex-end; */
-  /* margin-left: auto; */
-  font-size: var(--font-18);
+.select-container {
   width: 30%;
 }
 
-.sinput {
+.input-number-box select {
+  font-size: var(--font-18);
+  color: #fff;
+  border: 0;
+  background-color: transparent;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.input-number-box select option {
+  background-color: var(--dark-2);
+  color: #fff;
+}
+
+.input-number-box input {
   background-color: var(--dark-2);
   border-radius: var(--br-25);
   outline: none;
   border: 0;
   color: #fff;
-  padding: 12px;
+  padding: 10px;
   text-indent: 8px;
   font-weight: 600;
+  font-size: 17px;
+  width: 70%;
+}
+
+.input-number-box input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
