@@ -1,3 +1,5 @@
+// import React, { useState, useEffect } from 'react'
+
 // Components
 import Pricebox from '../../components/pricebox/Pricebox'
 import Action from '../../components/actions/Action'
@@ -43,6 +45,22 @@ import './homepage.css'
 import { Link } from 'react-router-dom'
 
 export default function Home() {
+  // const [isLoading, setIsLoading] = useState(false)
+  // const [error, setError] = useState(null)
+  // const [allNews, setAllNews] = useState([])
+
+  // useEffect(() => {
+  //   const fetchNews = async () => {
+  //     try {
+  //       const res = await axios.get("/news");
+  //       setAllNews(res.data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchNews();
+  // }, []);
+
   return (
     <main className='home container'>
       <section className='first-box'>
@@ -62,8 +80,12 @@ export default function Home() {
           bank, and trade gift cards or crypto
         </p>
         <div className='btns-wrapper'>
-          <button className='btn'>Sign Up</button>
-          <button className='btn'>Login</button>
+          <Link to='/signup-number'>
+            <button className='btn'>Sign Up</button>
+          </Link>
+          <Link to='/signup-number'>
+            <button className='btn'>Login</button>
+          </Link>
           <img className='robot-one' src={robotOne} alt='Robot one' />
         </div>
       </section>
@@ -288,7 +310,7 @@ export default function Home() {
           </div>
           <div className='socials'>
             <img src={telegramImage} alt='Telegram image' />
-            <p>Live chat</p>
+            <p>Telegram</p>
           </div>
         </div>
         <img className='robot-three' src={robotThree} alt='Robot three' />
