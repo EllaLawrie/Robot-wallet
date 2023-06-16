@@ -9,13 +9,14 @@
   --orange-1: #ffcc7e;
   --orange-2: #f09654;
   --orange-3: #f7c177;
+  --orange-4: #ee9f66;
   --pink: #ff6e91;
   --light-grey: #747792;
   --light-grey-2: #9395a4;
   --green: #85eab1;
 
   /* Fonts */
-  --poppins: "Poppins", sans-serif;
+  --poppins: 'Poppins', sans-serif;
 
   /* Font sizes */
   --font-10: 0.625rem;
