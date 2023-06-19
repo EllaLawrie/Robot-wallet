@@ -7,12 +7,17 @@
 }
 
 .inner-price-box {
-  width: 150px;
-  height: 150px;
+  width: 165px;
+  height: 165px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
+}
+
+.inner-price-box .usdt-logo-wrapper {
+  width: 50px;
+  height: 50px;
 }
 
 .section-title {

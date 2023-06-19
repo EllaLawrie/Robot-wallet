@@ -15,10 +15,14 @@ export default function SignUpNumberPage() {
   const [showModal, setShowModal] = useState(false)
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault()
     console.log(selectedCode, phoneNumber)
     setShowModal(true)
+  }
+
+  const handleEnter = (e) => {
     if (e.key === 'Enter') {
+      console.log(selectedCode, phoneNumber)
       setShowModal(true)
     }
   }
@@ -56,6 +60,7 @@ export default function SignUpNumberPage() {
           enterKeyHint='enter'
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
+          onKeyDown={handleEnter}
         />
       </div>
 

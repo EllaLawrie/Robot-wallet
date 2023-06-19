@@ -1,4 +1,4 @@
-// import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 // Components
 import Pricebox from '../../components/pricebox/Pricebox'
 import Action from '../../components/actions/Action'
@@ -42,23 +42,37 @@ import telegramImage from '../../assets/images/telegram.png'
 
 import './homepage.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export default function Home() {
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
   // const [allNews, setAllNews] = useState([]);
+  const [prices, setPrices] = useState([])
 
-  // useEffect(() => {
-  //   const fetchNews = async () => {
-  //     try {
-  //       const res = await axios.get("/news");
-  //       setAllNews(res.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   fetchNews();
-  // }, []);
+  // const apiKey =  "6cbbe406-4236-413b-8fc3-edd8a9ae6793";
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true)
+      try {
+        const res = await axios.get(
+          `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=${
+            import.meta.env.VITE_API_KEY
+          }`
+        )
+        // console.log(res.data)
+        setIsLoading(false)
+        setPrices([res.data.data[0], res.data.data[2]])
+      } catch (error) {
+        setIsLoading(false)
+        setError(error.response.data.message)
+      }
+    }
+    fetchData()
+  }, [])
+
+  // console.log(prices)
 
   return (
     <main className='home container'>
@@ -92,23 +106,26 @@ export default function Home() {
       <section className='section third-box'>
         <h2 className='section-title'>Price Alerts</h2>
         <div className='price-box-wrapper'>
-          <Pricebox
-            icon={binanceIcon}
-            crypto='BTC'
-            rate={2.5}
-            price='$32,128.80'
-            altText='Bitcoin'
-            arrowIcon={greenUpArrow}
-          />
-          <Pricebox
-            icon={usdtLogo}
-            crypto='USDT'
-            rate={2.2}
-            price='$1.0998'
-            altText='USDT'
-            arrowIcon={redArrowDown}
-          />
+          {isLoading && <p>Loading...</p>}
+          {error && <p>No prices at the moment</p>}
+          {prices.length > 0 &&
+            prices.map((price) => (
+              <Pricebox
+                key={price.id}
+                icon={price.slug === 'bitcoin' ? binanceIcon : usdtLogo}
+                crypto={price.symbol}
+                rate={price.quote.USD.percent_change_24h}
+                price={price.quote.USD.price}
+                altText={price.name}
+                arrowIcon={
+                  price.quote.USD.percent_change_24h > 0
+                    ? greenUpArrow
+                    : redArrowDown
+                }
+              />
+            ))}
         </div>
+        {prices.length == 0 && !isLoading && <p>No prices at the moment</p>}
       </section>
 
       <section className='section fourth-box'>

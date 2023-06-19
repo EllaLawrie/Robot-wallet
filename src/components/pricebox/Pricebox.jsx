@@ -5,7 +5,7 @@ export default function Pricebox({
   icon,
   crypto,
   rate,
-  price,
+  price = 0.0,
   altText,
   arrowIcon,
 }) {
@@ -22,7 +22,7 @@ export default function Pricebox({
             {rate}%
           </p>
         </div>
-        <h2>{price}</h2>
+        <h2>${price.toFixed(4)}</h2>
       </div>
     </div>
   )
