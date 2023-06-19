@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 // Components
 import Pricebox from '../../components/pricebox/Pricebox'
 import Action from '../../components/actions/Action'
