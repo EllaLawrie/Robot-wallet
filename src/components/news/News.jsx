@@ -2,7 +2,9 @@
 import './news.css'
 import clockIcon from '../../assets/icons/clock.svg'
 
-export default function News({ image, altText, text }) {
+import getDateDifference from '../../utils/getDateDifference'
+
+export default function News({ image, altText, text, time }) {
   return (
     <div className='news-content'>
       <img src={image} alt={altText} />
@@ -10,7 +12,7 @@ export default function News({ image, altText, text }) {
         <p>{text}</p>
         <span className='time-box'>
           <img src={clockIcon} alt='Clock icon' />
-          <p>3 days ago</p>
+          <p>{getDateDifference(time)}</p>
         </span>
       </div>
     </div>

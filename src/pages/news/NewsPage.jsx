@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import './newspage.css'
 import BackButton from '../../components/backButton/BackButton'
 
@@ -6,12 +7,24 @@ import achainIcon from '../../assets/icons/achain.svg'
 import clockIcon from '../../assets/icons/clock.svg'
 import binanceIcon from '../../assets/icons/bitcoinbinancesvg.svg'
 
-import displayImage from '../../assets/images/news-display.png'
 import newsImage1 from '../../assets/images/news-image1.png'
 import newsImage2 from '../../assets/images/news-image2.png'
+import newsImage3 from '../../assets/images/news-image3.png'
 import { Link } from 'react-router-dom'
+import useFetchData from '../../hooks/useFetchData'
+import getRandomImage from '../../utils/getRandomImage'
 
 export default function NewsPage() {
+  const allNews = useFetchData(
+    'http://ec2-3-231-77-121.compute-1.amazonaws.com:3000/api/v1/news'
+  )
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  const newsImages = [newsImage1, newsImage2, newsImage3]
+
   return (
     <section className='news-container'>
       <header>
@@ -27,7 +40,7 @@ export default function NewsPage() {
           </h2>
           <p>See all</p>
         </div>
-        <img className='display-image' src={displayImage} alt='News image' />
+        <div className='news-page__display-image'></div>
       </div>
 
       <div className='display-description'>
@@ -44,20 +57,32 @@ export default function NewsPage() {
           News
         </h2>
         <div className='all-news-wrapper'>
-          <Link to='/news-details/1'>
-            <News
-              image={newsImage1}
-              altText='News image'
-              text='Participate in the Corra Finance Airdrop on CoinMarketCap'
-            />
-          </Link>
-          <Link to={'/news-details/2'}>
-            <News
-              image={newsImage2}
-              altText='News image'
-              text='Participate in the Corra Finance Airdrop on CoinMarketCap'
-            />
-          </Link>
+          {allNews.isLoading && (
+            <div className='all-news-loader'>
+              <div className='lds-ripple'>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          )}
+          {allNews.error && (
+            <p className='all-news-error'>No news at the moment</p>
+          )}
+          {allNews.data.length > 0 &&
+            allNews.data.map((news) => {
+              const newsImage = getRandomImage(newsImages)
+              return (
+                <Link to={`/news-details/${news._id}`} key={news._id}>
+                  <News
+                    image={newsImage}
+                    altText={news.title}
+                    text={news.title}
+                    time={news.createdAt}
+                    key={news._id}
+                  />
+                </Link>
+              )
+            })}
         </div>
       </div>
     </section>

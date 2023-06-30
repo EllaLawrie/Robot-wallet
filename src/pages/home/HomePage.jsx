@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 // Components
 import Pricebox from '../../components/pricebox/Pricebox'
 import Action from '../../components/actions/Action'
@@ -42,37 +41,29 @@ import telegramImage from '../../assets/images/telegram.png'
 
 import './homepage.css'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import useFetchData from '../../hooks/useFetchData'
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState(null)
-  // const [allNews, setAllNews] = useState([]);
-  const [prices, setPrices] = useState([])
+  const newsImages = [newsImage1, newsImage2, newsImage3]
+  const faqImages = [faqImage1, faqImage2]
 
-  // const apiKey =  "6cbbe406-4236-413b-8fc3-edd8a9ae6793";
+  // Fetch prices
+  const pricesData = useFetchData(
+    `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=${
+      import.meta.env.VITE_API_KEY
+    }`
+  )
+  const prices = [pricesData.data[0], pricesData.data[2]]
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true)
-      try {
-        const res = await axios.get(
-          `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=${
-            import.meta.env.VITE_API_KEY
-          }`
-        )
-        // console.log(res.data)
-        setIsLoading(false)
-        setPrices([res.data.data[0], res.data.data[2]])
-      } catch (error) {
-        setIsLoading(false)
-        setError(error.response.data.message)
-      }
-    }
-    fetchData()
-  }, [])
+  // Fetch news
+  const allNews = useFetchData(
+    'http://ec2-3-231-77-121.compute-1.amazonaws.com:3000/api/v1/news'
+  )
 
-  // console.log(prices)
+  // Fetch faqs
+  const allFaqs = useFetchData(
+    'http://ec2-3-231-77-121.compute-1.amazonaws.com:3000/faq'
+  )
 
   return (
     <main className='home container'>
@@ -106,9 +97,9 @@ export default function Home() {
       <section className='section third-box'>
         <h2 className='section-title'>Price Alerts</h2>
         <div className='price-box-wrapper'>
-          {isLoading && <p>Loading...</p>}
-          {error && <p>No prices at the moment</p>}
-          {prices.length > 0 &&
+          {pricesData.isLoading && <p>Loading...</p>}
+          {pricesData.error && <p>No prices at the moment</p>}
+          {pricesData.data.length > 0 &&
             prices.map((price) => (
               <Pricebox
                 key={price.id}
@@ -125,7 +116,6 @@ export default function Home() {
               />
             ))}
         </div>
-        {prices.length == 0 && !isLoading && <p>No prices at the moment</p>}
       </section>
 
       <section className='section fourth-box'>
@@ -260,27 +250,22 @@ export default function Home() {
           </Link>
         </div>
         <div className='news-wrapper'>
-          <Link to='/news-details/1'>
-            <News
-              image={newsImage1}
-              altText='News image 1'
-              text='Participate in the Corra Finance Airdrop on CoinMarketCap'
-            />
-          </Link>
-          <Link to='/news-details/2'>
-            <News
-              image={newsImage2}
-              altText='News image 2'
-              text='Bitcoin Surpasses $40k With On-Chain Indicators Turning Bullish'
-            />
-          </Link>
-          <Link to='/news-details/3'>
-            <News
-              image={newsImage3}
-              altText='News image 3'
-              text='CoinMarketCap APAC Influencer(KOL) Content Policy'
-            />
-          </Link>
+          {allNews.isLoading && <p>Loading...</p>}
+          {allNews.error && <p>No news at the moment</p>}
+          {allNews.data.length > 0 &&
+            allNews.data.slice(0, 3).map((news, index) => {
+              return (
+                <Link to={`/news-details/${news._id}`} key={news._id}>
+                  <News
+                    image={newsImages[index]}
+                    altText={news.title}
+                    text={news.title}
+                    time={news.createdAt}
+                    key={news._id}
+                  />
+                </Link>
+              )
+            })}
         </div>
       </section>
 
@@ -292,20 +277,21 @@ export default function Home() {
           </Link>
         </div>
         <div className='faqs-wrapper'>
-          <Link to='/faq-details/1'>
-            <Faq
-              image={faqImage1}
-              altText='FAQ image 1'
-              text='Participate in the Corra Finance Airdrop on CoinMarketCap'
-            />
-          </Link>
-          <Link to='/faq-details/2'>
-            <Faq
-              image={faqImage2}
-              altText='FAQ image 2'
-              text='Participate in the Corra Finance Airdrop on CoinMarketCap'
-            />
-          </Link>
+          {allFaqs.isLoading && <p>Loading...</p>}
+          {allFaqs.error && <p>No faqs at the moment</p>}
+          {allFaqs.data.length > 0 &&
+            allFaqs.data.slice(0, 2).map((faq, index) => {
+              return (
+                <Link to={`/faq-details/${faq._id}`} key={faq._id}>
+                  <Faq
+                    image={faqImages[index]}
+                    altText={faq.title}
+                    text={faq.title}
+                    key={faq._id}
+                  />
+                </Link>
+              )
+            })}
         </div>
       </section>
 

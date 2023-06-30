@@ -6,7 +6,35 @@ import clockIcon from '../../assets/icons/clock.svg'
 import heart from '../../assets/images/heart.png'
 import BackButton from '../../components/backButton/BackButton'
 
+import { useParams } from 'react-router-dom'
+import useFetchData from '../../hooks/useFetchData'
+import getDateDifference from '../../utils/getDateDifference'
+
 export default function NewsDetails() {
+  const { id } = useParams()
+
+  const allNews = useFetchData(
+    'http://ec2-3-231-77-121.compute-1.amazonaws.com:3000/api/v1/news'
+  )
+  // console.log(allNews.data);
+  const news = allNews.data.find((news) => news._id === id)
+  // console.log(news);
+
+  if (allNews.isLoading) {
+    return (
+      <div className='loading'>
+        <div className='lds-ripple'>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    )
+  }
+
+  if (allNews.error) {
+    return <p className='error'>Something went wrong...</p>
+  }
+
   return (
     <section className='news-section details-container'>
       <div className='btn-heart-box'>
@@ -17,16 +45,16 @@ export default function NewsDetails() {
       </div>
       <div className='display-details-section'>
         <div className='display-title-content'>
-          <h2>Participate in the Corra Finance Airdrop on CoinMarketCap</h2>
+          <h2>{news?.title}</h2>
           <hr />
           <div className='bottom-content'>
             <div className='user-content'>
               <img src={userIcon} alt='User icon' />
-              <p>Johny Doe</p>
+              <p>{news?.author ? news?.author : 'Johnny Doe'}</p>
             </div>
             <span className='time-box'>
               <img src={clockIcon} alt='Clock icon' />
-              <p>3 days ago</p>
+              <p>{getDateDifference(news?.createdAt)}</p>
             </span>
           </div>
         </div>
@@ -46,6 +74,7 @@ export default function NewsDetails() {
             participating in the airdrop. The most important first step is to
             login to your CoinMarketCap account.
           </p>
+          {/* <p>{news?.content}</p> */}
         </div>
       </div>
     </section>
